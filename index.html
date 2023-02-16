@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Итоговая работа модуля CSS</title>
+  <link rel="preload" href="font/roboto-900.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="font/roboto-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="font/roboto-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <article class="indents">
+    <div class="intro">
+      <div class="container">
+        <h1 class="intro__title">Отступы в вёрстке: margin и padding</h1>
+        <p class="intro__text">В этой статье я рассмотрю самые популярные "стандартные" решения для сохранения смысла и хорошей читаемости вашего кода. Если точнее — речь пойдет об основных правилах организации отступов. Они сильно влияют на общую функциональность кода и, если всё сделано верно, позволяют легко вносить изменения в любую его часть. При этом другие части кода продолжат нормально работать.</p>
+        <p class="intro__text">Как это часто бывает, знание базовых принципов поможет проявить гибкость и выйти за их пределы. Эти знания особенно важны для начинающих, но также будут полезным напоминанием и для более опытных верстальщиков. Итак, поговорим о фундаментальных основах работы с отступами в вёрстке.</p>
+      </div>
+    </div>
+
+      <section class="info">
+        <div class="container-gris">
+          <h2 class="info__title indents__subtitle-gris">Содержание:</h2>
+          <nav class="info__nav">
+            <ol class="info__list">
+              <li class="info__item"><a class="info__link" href="#first">Отступ задается от предыдущего элемента к следующему</a></li>
+              <li class="info__item"><a class="info__link" href="#second">Отступ задается последнему возможному элементу в DOM-дереве</a></li>
+              <li class="info__item"><a class="info__link" href="#third">Для последнего элемента группы отступ обнуляется</a></li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+
+      <section class="firstRule" id="first">
+        <div class="container">
+          <h2 class="firstRule__title indents__subtitle">Отступ задается от предыдущего элемента к следующему: от первого ко второму, сверху вниз, слева направо.</h2>
+          <div class="firstRule__partOne">
+            <img class="firstRule__partOne-img" src="img/marginCats.png" alt="правило использования margin-bottom и margin-right на примере картинок с котиками">
+
+            <div class="firstRule__text-wrapper">
+              <p class="firstRule__text indents__text"><span class="indents__text indents__text--important">ВАЖНО:</span> <span class="indents__text indents__text--italic">margin</span> всегда задают от предыдущего элемента к следующему.</p>
+              <p class="firstRule__text">Свойство <span class="indents__text indents__text--italic">margin</span> необходимо только для того, чтобы отодвинуть своего соседа справа или снизу, поэтому используется <span class="indents__text indents__text--italic">margin-right</span> и <span class="indents__text indents__text--italic">margin-bottom</span>.</p>
+              <p class="firstRule__text indents__text">(!) Свойства <span class="indents__text indents__text--italic">margin-left</span> и <span class="indents__text indents__text--italic">margin-top</span> используются крайне редко.</p>
+              <p class="firstRule__text indents__text">Для <span class="indents__text indents__text--italic">padding</span> верно обратное. Исключением является его применения в декоративных целях, например, для увеличения области ссылки.</p>
+            </div>
+          </div>
+
+          <div class="firstRule__partTwo">
+            <div class="firstRule__text-wrapper firstRule__text-wrapper--left">
+              <p class="firstRule__text indents__text">Отступ внутри блока сверху или слева реализуется через <span class="indents__text indents__text--italic">padding-top</span> и <span class="indents__text indents__text--italic">padding-left</span> родителя.</p>
+              <p class="firstRule__text indents__text">Отступы, как правило, делают в направлении от предыдущего элемента к следующему. Так элемент не будет толкать сам себя.</p>
+              <p class="firstRule__text indents__text">Изначально элемент статичен, а его положение может меняться только под воздействием свойств других блоков или свойств родителя.</p>
+            </div>
+
+            <img class="firstRule__partOne-img" src="img/paddingCat.png" alt="правило использования padding-top на примере картинки с котиком">
+          </div>
+        </div>
+      </section>
+
+      <section class="rule secondRule" id="second">
+        <div class="container">
+          <h2 class="rule__title indents__subtitle">Отступ задается последнему возможному элементу в DOM-дереве</h2>
+          <p class="rule__text indents__text">Вообще, margin задают исключительно между соседними элементами DOM-дерева. Для примера, посмотрите на этот список:</p>
+          <img class="rule-img" src="img/DOMHtml.png" alt="пример HTML списка">
+          <img class="rule-img" src="img/DOMExample.png" alt="пример">
+          <p class="rule__text indents__text">Отступ делают за счёт соседних элементов, а не дочерних:</p>
+          <img class="rule-img" src="img/DOMExample2.png" alt="пример отступа за счёт соседних элементов, а не дочерних (HTML)">
+          <p class="rule__text indents__text">Казалось бы, можно задать отступ параграфу &lt;p&gt;, либо обёртке &lt;article&gt; для достижения той же цели. Внешне останется все точно также, но так делать не рекомендуется.</p>
+          <p class="rule__text indents__text">Предыдущий пример был достаточно простым, но бывает вложенность значительно больше.</p>
+          <img class="rule-img" src="img/DOMHtml2.png" alt="пример вложенности тега h2 в тег div, который вложен в тег section (HTML)">
+          <p class="rule__text indents__text">В случае с заголовком, если ему необходим отступ сверху, последним элементом будет section. Именно для него задается padding-top, а не div с классом container. Свойства margin, которые стоят по умолчанию необходимо обнулить.</p>
+          <img class="rule-img" src="img/DOMExample4.png" alt="пример кода HTML, описывающего ситуацию выше">
+          <p class="rule__text indents__text">Это необходимо для более простого поиска отступов в будущем — для вас или того, кто будет верстать после вас. Кроме того, возможны серьёзные проблемы при динамическом дублировании или выводе вёрстки с нестандартной структурой отступов.</p>
+        </div>
+      </section>
+
+      <section class="rule thirdRule" id="third">
+        <div class="container">
+          <h2 class="rule__title indents__subtitle">Для последнего элемента группы отступ всегда обнуляется</h2>
+          <p class="rule__text indents__text">Для наглядности возьмём наш предыдущий пример с рецептами</p>
+          <p class="rule__text indents__text">Между рецептами расстояние одинаковое. Можно заметить, что и до следующего блока расстояние такое же.</p>
+          <img class="rule-img" src="img/thirdExample1.png" alt="скрин страницы с рецептами. Список рецептов с одинаковым расстоянием">
+          <p class="rule__text indents__text">В соответствии со вторым принципом: последний margin обнуляется, а нижний отступ задаётся через padding для section. Я чаще всего задаю padding для секции с обоих сторон, если расстояние между секциями 100px задаю секциям padding-top:50px и padding-bottom:50px.</p>
+          <img class="rule-img" src="img/thirdExample2.png" alt="скрин страницы с рецептами. Свойство margin-bottom есть у всех элементов, кроме последнего">
+          <img class="rule-img" src="img/thirdExample3.png" alt="пример HTML-кода">
+          <p class="rule__text indents__text">Для большего понимания рассмотрим другой пример, который часто встречается на практике:</p>
+          <img class="rule-img" src="img/thirdExample4.png" alt="скрин страницы с меню, размещённом в header">
+          <img class="rule-img" src="img/thirdExample5.png" alt="пример HTML меню, размещённом в header">
+          <p class="rule__text indents__text">Здесь нас интересует отступ между пунктами меню и списком с кнопкой поиска. Отступы между пунктами меню задаются так:</p>
+          <img class="rule-img" src="img/thirdExample6.png" alt="часть HTML кода, пунктам меню задано свойство margin-right">
+          <p class="rule__text indents__text">Советую использовать псевдоклассы :last-child чаще других, например так:</p>
+          <img class="rule-img" src="img/thirdExample7.png" alt="часть HTML кода, свойство margin-right для последнего элемента отменено через использование псевдокласса :last-child">
+        </div>
+      </section>
+
+      <section class="resume">
+        <div class="container-gris">
+          <h2 class="resume__title indents__subtitle-gris">Подытожим:</h2>
+          <ul class="resume__list">
+            <li class="resume__item">&ndash; отступы задаём от предыдущего элемента к следующему</li>
+            <li class="resume__item">&ndash; используем только margin-right и margin-bottom</li>
+            <li class="resume__item">&ndash; внешние отступы задаются только между соседями</li>
+            <li class="resume__item">&ndash; внутренний отступ задаём самому верхнему элементу в дом дереве</li>
+            <li class="resume__item">&ndash; последнему элементу группы отступ всегда обнуляем</li>
+          </ul>
+
+          <p class="resume__text">Конечно бывают исключения. Ведь макеты бывают различной сложности. Иногда базовые принципы приходится нарушать в угоду дизайнерского решения или простоты вёрстки. Но для этого эти принципы необходимо хорошо знать.</p>
+        </div>
+      </section>
+  </article>
+</body>
+</html>

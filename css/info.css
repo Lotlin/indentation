@@ -1,0 +1,17 @@
+.info {
+  padding: 25px 0;
+}
+
+.info__nav {
+  padding-left: 30px;
+  color: #02535F;
+  line-height: 24px;
+}
+
+.info__item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.info__link {
+  border-bottom: 1px solid #000000;
+}

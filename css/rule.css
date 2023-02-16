@@ -1,0 +1,16 @@
+.rule {
+  padding: 25px 0;
+}
+
+.rule p:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.rule img:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.rule-img {
+  display: block;
+  margin: 0 auto;
+}

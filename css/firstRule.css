@@ -1,0 +1,25 @@
+.firstRule {
+  padding: 25px 0;
+}
+
+.firstRule__partOne {
+  margin-bottom: 30px;
+}
+
+.firstRule__partOne-img {
+  margin-right: 30px;
+}
+
+.firstRule__text-wrapper {
+  display: inline-block;
+  max-width: 480px;
+  vertical-align: top;
+}
+
+.firstRule__text-wrapper p:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.firstRule__text-wrapper--left {
+  margin-right: 5px;
+}

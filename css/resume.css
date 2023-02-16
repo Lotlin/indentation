@@ -1,0 +1,15 @@
+.resume {
+  padding: 25px 0 50px;
+}
+
+.resume__list {
+  margin-bottom: 30px;
+}
+
+.resume__item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.resume__text {
+  max-width: 995px;
+}
